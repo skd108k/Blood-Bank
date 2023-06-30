@@ -1,11 +1,23 @@
+// const express = require("express");
+// const { testController } = require("../controllers/testController");
+
+// //router object
+// const router = express.Router();
+
+// //routes
+// router.get("/", testController);
+
+// //export
+// module.exports = router;
+
 const express = require("express");
-const { testController } = require("../controllers/testController");
+const { registerController } = require("../controllers/authController");
 
 //router object
 const router = express.Router();
 
 //routes
-router.get("/", testController);
+router.post("/register", registerController);
 
 //export
 module.exports = router;
