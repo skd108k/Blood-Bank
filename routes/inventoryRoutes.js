@@ -16,7 +16,7 @@ router.get('/get-inventory', authMiddleware, getInventoryController);
 router.get('/get-recent-inventory', authMiddleware, getRecentInventoryController);
 
 //post hospital blood records
-router.post("/get-inventory", authMiddleware, getInventoryHospitalController)
+router.post("/get-inventory-hospital", authMiddleware, getInventoryHospitalController)
 
 //GET DONAR RECCORDS
 router.get("/get-donars", authMiddleware, getDonarsController);
