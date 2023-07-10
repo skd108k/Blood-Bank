@@ -13,8 +13,34 @@ const Form = ({ formType, submitBtn, formTitle }) => {
   const [website, setWebsite] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
+
+  // Inline CSS styles
+  const formContainerStyles = {
+    maxWidth: "400px",
+    margin: "0 auto",
+    padding: "20px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "5px",
+    boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+  };
+
+  const formTitleStyles = {
+    textAlign: "center",
+    marginBottom: "20px",
+  };
+
+  const radioButtonStyles = {
+    display: "flex",
+    justifyContent: "space-between",
+    marginBottom: "20px",
+  };
+
+  const linkStyles = {
+    textDecoration: "underline",
+  };
+
   return (
-    <div>
+    <div style={formContainerStyles}>
       <form
         onSubmit={(e) => {
           if (formType === "login")
@@ -34,9 +60,9 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             );
         }}
       >
-        <h1 className="text-center">{formTitle}</h1>
+        <h1 style={formTitleStyles}>{formTitle}</h1>
         <hr />
-        <div className="d-flex mb-3">
+        <div style={radioButtonStyles}>
           <div className="form-check">
             <input
               type="radio"
@@ -47,11 +73,11 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               onChange={(e) => setRole(e.target.value)}
               defaultChecked
             />
-            <label htmlFor="adminRadio" className="form-check-label">
-              Donar
+            <label htmlFor="donarRadio" className="form-check-label">
+              Donor
             </label>
           </div>
-          <div className="form-check ms-2">
+          <div className="form-check">
             <input
               type="radio"
               className="form-check-input"
@@ -64,7 +90,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               Admin
             </label>
           </div>
-          <div className="form-check ms-2">
+          <div className="form-check">
             <input
               type="radio"
               className="form-check-input"
@@ -77,7 +103,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               Hospital
             </label>
           </div>
-          <div className="form-check ms-2">
+          <div className="form-check">
             <input
               type="radio"
               className="form-check-input"
@@ -91,15 +117,16 @@ const Form = ({ formType, submitBtn, formTitle }) => {
             </label>
           </div>
         </div>
+
         {/* switch statement */}
         {(() => {
-          //eslint-disable-next-line
+          // eslint-disable-next-line
           switch (true) {
             case formType === "login": {
               return (
                 <>
                   <InputType
-                    labelText={"email"}
+                    labelText={"Email"}
                     labelFor={"forEmail"}
                     inputType={"email"}
                     name={"email"}
@@ -133,7 +160,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                   {role === "organisation" && (
                     <InputType
                       labelText={"Organisation Name"}
-                      labelFor={"fororganisationName"}
+                      labelFor={"forOrganisationName"}
                       inputType={"text"}
                       name={"organisationName"}
                       value={organisationName}
@@ -152,7 +179,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                   )}
 
                   <InputType
-                    labelText={"email"}
+                    labelText={"Email"}
                     labelFor={"forEmail"}
                     inputType={"email"}
                     name={"email"}
@@ -168,7 +195,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                   <InputType
-                    labelText={"website"}
+                    labelText={"Website"}
                     labelFor={"forWebsite"}
                     inputType={"text"}
                     name={"website"}
@@ -200,13 +227,17 @@ const Form = ({ formType, submitBtn, formTitle }) => {
         <div className="d-flex flex-row justify-content-between">
           {formType === "login" ? (
             <p>
-              Not registerd yet ? Register
-              <Link to="/register"> Here !</Link>
+              Not registered yet? Register
+              <Link to="/register" style={linkStyles}>
+                Here!
+              </Link>
             </p>
           ) : (
             <p>
-              ALready Usser Please
-              <Link to="/login"> Login !</Link>
+              Already a user? Please
+              <Link to="/login" style={linkStyles}>
+                Login!
+              </Link>
             </p>
           )}
           <button className="btn btn-primary" type="submit">
