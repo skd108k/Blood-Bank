@@ -186,14 +186,29 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                  <InputType
-                    labelText={"Password"}
-                    labelFor={"forPassword"}
-                    inputType={"password"}
-                    name={"password"}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
+                  <div className="row">
+                    <div className="col">
+                      <InputType
+                        labelText={"Password"}
+                        labelFor={"forPassword"}
+                        inputType={"password"}
+                        name={"password"}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+                    </div>
+                    <div className="col">
+                      <InputType
+                        labelText={"Phone"}
+                        labelFor={"forPhone"}
+                        inputType={"text"}
+                        name={"phone"}
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                      />
+                    </div>
+                  </div>
+
                   <InputType
                     labelText={"Website"}
                     labelFor={"forWebsite"}
@@ -209,14 +224,6 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                     name={"address"}
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
-                  />
-                  <InputType
-                    labelText={"Phone"}
-                    labelFor={"forPhone"}
-                    inputType={"text"}
-                    name={"phone"}
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
                   />
                 </>
               );
